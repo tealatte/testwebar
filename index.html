@@ -8,13 +8,15 @@
     <!-- Include A-Frame  -->
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 
+    <input type="button" value="Check" onclick="myfunc()">
     <script>
-
-    var cam = document.querySelector('a-scene').camera.el.object3D;
-    var camVec = new THREE.Vector3();
-    var camDir = cam.getWorldDirection(camVec);
-    console.log(camVec)
-    console.log(camDir)
+    var myfunc = function () {
+        var str = ".innerHTMLÇ≈ïœêîìnÇµÅI";
+        document.getElementById('edit_area').innerHTML = str ;
+        var cam = document.querySelector('a-scene').camera.el.object3D;
+        var camVec = new THREE.Vector3();
+        var camDir = cam.getWorldDirection(camVec);
+    }
 
 
     </script>
