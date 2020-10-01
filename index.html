@@ -2,24 +2,33 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>A-Frame で超簡単 AR</title>
+    <title>AR test</title>
   </head>
   <body style="margin:0px; overflow:hidden;">
-    <!-- A-Frame ライブラリの読み込み -->
+    <!-- Include A-Frame  -->
     <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-    <!-- AR.js ライブラリの読み込み -->
+
+    <script>
+
+    var cam = document.querySelector('a-scene').camera.el.object3D;
+    var camVec = new THREE.Vector3();
+    var camDir = cam.getWorldDirection(camVec);
+    console.log(camVec)
+    console.log(camDir)
+
+
+    </script>
+
+    <!-- Include AR.js  -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
-    <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIは非表示） -->
+    <!-- Connect A-Frame to AR.js  -->
     <a-scene embedded arjs="debugUIEnabled:true;">
 
-      <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
       <a-marker preset="hiro">
-        <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
-        <a-box position="0 0.0 0" color="#4CC3D9"></a-box>
+        <a-box position="0 0.5 0" color="#4CC3D9"></a-box>
       </a-marker>
 
-      <!-- AR用のカメラを置く -->
       <a-entity camera></a-entity>
 
     </a-scene>
